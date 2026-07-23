@@ -98,6 +98,6 @@ streamlit run app.py
 
 ## Author
 
-**P Vivek**
+**Vivek Perka**
 
-If you found this project useful, consider starring the repository.
+Turning data into confident expansion decisions, one city at a time.
