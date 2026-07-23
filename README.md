@@ -1,65 +1,103 @@
-# Monday Coffee Strategic Expansion Analysis
+# ☕ Monday Coffee — Strategic Expansion Analysis
 
-**Author**: P Vivek
+[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://monday-coffee-strategic-expansion-analysis.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![SQL](https://img.shields.io/badge/Analysis-SQL-4479A1?logo=postgresql&logoColor=white)](Solutions.sql)
 
-## Project Overview
-This project focuses on analyzing the sales data of Monday Coffee, an online coffee retailer, to identify key opportunities for physical store expansion. By leveraging data analytics techniques, the study evaluates consumer demand, sales performance, and market potential across major Indian cities to recommend the optimal locations for new store openings.
+An end-to-end data analytics project that helps **Monday Coffee** decide where to open its next physical stores in India. It combines online sales performance, customer activity, city population, and estimated rent to identify locations with strong demand and practical operating costs.
 
-The primary objective is to derive actionable insights that balance high sales potential with operational cost efficiency.
+## 🔗 Live Demo
 
-## Database Structure
-The analysis is based on a relational database consisting of four primary tables:
+Explore the interactive dashboard here: **[Monday Coffee Expansion Dashboard](https://monday-coffee-strategic-expansion-analysis.streamlit.app/)**
 
-1. **City**: Contains data on city population, estimated rent, and ranking.
-2. **Customers**: Stores distinct customer profiles and their associated cities.
-3. **Products**: Lists the coffee products available for sale along with their pricing.
-4. **Sales**: The transactional record of all sales, linking customers, products, and sales dates.
+## Business Problem
 
-## Key Business Questions Analyzed
-The project addresses ten critical questions to guide the expansion strategy. Below are the key areas of focus:
+Monday Coffee sells online and wants to expand into physical retail. The question is not simply *which city has the highest revenue?* A promising city should also have a strong customer base, a large potential market, and rent that can be supported by demand.
 
-1.  **Consumer Demographics**: Estimation of potential coffee consumers per city based on population data.
-2.  **Revenue Performance**: Calculation of total revenue generated across all cities, specifically focusing on the last quarter of 2023.
-3.  **Product Popularity**: Analysis of sales volume for each coffee product.
-4.  **Customer Spend Behavior**: Determination of the average sales amount per customer in each city.
-5.  **City Metrics**: Aggregation of population, rent, and estimated consumer data.
-6.  **Top Selling Products**: Identification of the top-performing products within each specific city.
-7.  **Customer Base Analysis**: measurement of unique customer counts per city.
-8.  **Cost-Benefit Analysis**: Comparison of average revenue per customer against average rent per customer.
-9.  **Sales Trajectory**: Calculation of monthly sales growth rates.
-10. **Market Potential Index**: A comprehensive scoring to identify the top three cities based on a weighted analysis of sales, rent, and customer volume.
+This analysis answers: **Which cities should be prioritized for the next store openings?**
 
-## Strategic Recommendations
-Based on the comprehensive data analysis, the following cities are recommended for the immediate phase of store expansion:
+## What the Dashboard Demonstrates
 
-*   **Pune**: Identified as a high-priority location due to its exceptional balance of high total revenue and low average rent per customer, suggesting strong profitability.
-*   **Delhi**: Represents the largest total addressable market with the highest number of estimated coffee consumers and total active customers.
-*   **Jaipur**: Recommended for its strong customer engagement and favorable operational costs (lowest average rent), providing a low-risk entry point.
+- **Business scale:** total revenue, active customers, order volume, and average order value.
+- **Demand by city:** a revenue comparison across cities to reveal where online traction is strongest.
+- **Expansion economics:** customers, estimated monthly rent, revenue per customer, and rent per customer in one view.
+- **Sales momentum:** monthly sales trends to understand how demand changes over time.
+- **Product demand:** the coffee products customers order most often.
+- **Market potential:** population-based estimates of potential coffee consumers alongside existing sales data.
 
-## Technical Implementation
-The project utilizes SQL for data extraction, joining, and aggregation. Key technical concepts applied include:
-*   Complex Joins and Subqueries
-*   Common Table Expressions (CTEs)
-*   Window Functions (RANK, DENSE_RANK, LAG)
-*   Data Aggregation (GROUP BY, SUM, COUNT, AVG)
+## Key Insights
 
-## How to Run
-1.  **Database Setup**: Execute the `Schemas.sql` script to create the database structure and tables.
-2.  **Data Import**: Load the provided CSV files (`city.csv`, `customers.csv`, `products.csv`, `sales.csv`) into the respective tables.
-3.  **Analysis**: Run the queries in `Solutions.sql` to generate the reports.
-4.  **Python Alternative**: A Python script (`run_project.py`) is also included to replicate the SQL analysis using the Pandas library for quick verification.
+The final store decision should be validated with neighbourhood-level research, but the analysis highlights three strong candidates:
 
-## Interactive Dashboard
+| City | Why it stands out |
+| --- | --- |
+| **Pune** | Highest revenue with a low rent-per-customer figure, making it the strongest overall commercial opportunity. |
+| **Delhi** | A very large estimated coffee-consuming population and a strong existing customer base. |
+| **Jaipur** | Strong customer engagement with favourable operating costs, making it a lower-risk expansion option. |
 
-The project includes a Streamlit dashboard that makes the analysis easy to explore in a browser.
+## Data Model
 
-### Run locally
+The project uses four related datasets:
+
+| Dataset | Description |
+| --- | --- |
+| `city.csv` | City population, estimated rent, and ranking. |
+| `customers.csv` | Customer profiles and their home cities. |
+| `products.csv` | Coffee product catalogue and prices. |
+| `sales.csv` | Order-level transaction data, ratings, and dates. |
+
+## Analysis Questions
+
+The SQL analysis covers the following business questions:
+
+1. How many potential coffee consumers does each city have (assuming 25% of its population drinks coffee)?
+2. What was the total revenue in Q4 2023?
+3. Which products have the highest order volumes?
+4. What is the average customer spend in each city?
+5. How do population, potential consumers, and active customers compare by city?
+6. What are the top three products in every city?
+7. How many unique customers does each city have?
+8. How does average sales per customer compare with rent per customer?
+9. How is sales changing month to month?
+10. Which cities have the strongest overall expansion potential?
+
+## Tech Stack
+
+- **SQL** — joins, CTEs, aggregates, subqueries, and window functions (`DENSE_RANK`, `LAG`).
+- **Python + Pandas** — data loading and analytical validation.
+- **Streamlit** — interactive dashboard and cloud deployment.
+
+## Project Structure
+
+```text
+├── app.py              # Streamlit dashboard
+├── run_project.py      # Pandas-based analysis script
+├── Schemas.sql         # Database schema
+├── Solutions.sql       # SQL business analysis
+├── city.csv            # City data
+├── customers.csv       # Customer data
+├── products.csv        # Product data
+├── sales.csv           # Transaction data
+└── requirements.txt    # Dashboard dependencies
+```
+
+## Run the Dashboard Locally
 
 ```bash
+git clone https://github.com/vivekperka7-spec/Monday-Coffee-Strategic-Expansion-Analysis.git
+cd Monday-Coffee-Strategic-Expansion-Analysis
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-### Deploy
+## Run the SQL Analysis
 
-Deploy `app.py` from this GitHub repository with [Streamlit Community Cloud](https://share.streamlit.io/). Select the `main` branch and use `app.py` as the entrypoint. The included `requirements.txt` installs the dashboard dependencies automatically.
+1. Create the tables using `Schemas.sql`.
+2. Import the CSV files in this order: `city`, `products`, `customers`, then `sales`.
+3. Run `Solutions.sql` to generate the analysis reports.
+
+## Author
+
+**P Vivek**
+
+If you found this project useful, consider starring the repository.
