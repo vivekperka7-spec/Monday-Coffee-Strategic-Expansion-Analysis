@@ -48,3 +48,18 @@ The project utilizes SQL for data extraction, joining, and aggregation. Key tech
 2.  **Data Import**: Load the provided CSV files (`city.csv`, `customers.csv`, `products.csv`, `sales.csv`) into the respective tables.
 3.  **Analysis**: Run the queries in `Solutions.sql` to generate the reports.
 4.  **Python Alternative**: A Python script (`run_project.py`) is also included to replicate the SQL analysis using the Pandas library for quick verification.
+
+## Interactive Dashboard
+
+The project includes a Streamlit dashboard that makes the analysis easy to explore in a browser.
+
+### Run locally
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+### Deploy
+
+Deploy `app.py` from this GitHub repository with [Streamlit Community Cloud](https://share.streamlit.io/). Select the `main` branch and use `app.py` as the entrypoint. The included `requirements.txt` installs the dashboard dependencies automatically.
