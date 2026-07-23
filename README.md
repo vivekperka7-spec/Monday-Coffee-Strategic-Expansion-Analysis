@@ -1,6 +1,6 @@
 # Monday Coffee Strategic Expansion Analysis
 
-**Author**:  Vivek Perka
+**Author**: P Vivek
 
 ## Project Overview
 This project focuses on analyzing the sales data of Monday Coffee, an online coffee retailer, to identify key opportunities for physical store expansion. By leveraging data analytics techniques, the study evaluates consumer demand, sales performance, and market potential across major Indian cities to recommend the optimal locations for new store openings.
